@@ -1,14 +1,12 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class slangDictionary {
-    private HashMap<String, List<String>> dictionary=new HashMap<String,List<String>>();
-    private List<String> searchHistory =new ArrayList();
+    private final HashMap<String, List<String>> dictionary=new HashMap<String,List<String>>();
+    private final List<searchHistory> searchHistoryList =new ArrayList();
     public void getData(){
         try
             {
@@ -34,6 +32,24 @@ public class slangDictionary {
             System.out.println("ERROR"+ex);
         }
     }
+    public String getString(String key, List<String> value){
+        String definition = "";
+        for(String def: value){
+            definition += def + ",";
+        }
+        String print = key + " : " +definition;
+        System.out.println(print);
+        return print;
+    }
+    public void writeHistory(String type, String content){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        String dateInfo =  formatter.format(date);
+        searchHistory history = new searchHistory(dateInfo,type, content);
+        searchHistoryList.add(0, history);
+        //
+        
+    }
     public void printAllWord(){
         System.out.println(dictionary.size());
         for (HashMap.Entry<String, List<String>> entry : dictionary.entrySet()) {
@@ -47,9 +63,30 @@ public class slangDictionary {
             System.out.println(print);
         }
     }
+    public HashMap.Entry<String, List<String>> findSlangWord(String word){
+        HashMap.Entry<String, List<String>> temp = new AbstractMap.SimpleEntry<String, List<String>>(word,dictionary.get(word));
+        return temp;
+    }
+    public HashMap<String, List<String>> findDefinition(String def){
+        String[] definition = def.split(" ");
+        HashMap<String, List<String>> list =new HashMap<String,List<String>>();
+        for (HashMap.Entry<String, List<String>> entry : dictionary.entrySet()){
+            for(String item: definition){
+                for(String i: entry.getValue()) {
+                    if(i.contains(item)) {
+                        list.put(entry.getKey(), entry.getValue());
+                    }
+                }
+            }
+        }
+        return list;
+    }
     public static void main(String[] arg){
         slangDictionary slang = new slangDictionary();
         slang.getData();
-        slang.printAllWord();
+        HashMap<String, List<String>> listHashMap = slang.findDefinition("Evil Love One");
+        for (HashMap.Entry<String, List<String>> entry : listHashMap.entrySet()){
+            slang.getString(entry.getKey(), entry.getValue());
+        }
     }
 }
