@@ -20,4 +20,9 @@ public class searchHistory {
     public String getContent() {
         return content;
     }
+
+    @Override
+    public String toString() {
+        return this.date+"|"+this.type+"|"+this.content+"\n";
+    }
 }
