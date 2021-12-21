@@ -70,6 +70,16 @@ public class slangDictionary {
         System.out.println(print);
         return print;
     }
+    public String getString(HashMap.Entry<String, List<String>> entry){
+        String key = entry.getKey();
+        StringBuilder definition = new StringBuilder();
+        for(String def: entry.getValue()){
+            definition.append(def).append(",");
+        }
+        String print = key + " : " +definition;
+        System.out.println(print);
+        return print;
+    }
     public void saveHistory(){
         FileWriter fileWrite;
         try{
@@ -169,13 +179,16 @@ public class slangDictionary {
         }
         return list;
     }
+    public HashMap.Entry<String, List<String>> randomASlang(){
+        List<String> keysAsArray = new ArrayList<String>(dictionary.keySet());
+        Random r = new Random();
+        int randomKey = r.nextInt(keysAsArray.size());
+        return new AbstractMap.SimpleEntry<>(keysAsArray.get(randomKey), dictionary.get(keysAsArray.get(randomKey)));
+    }
     public static void main(String[] arg){
         slangDictionary slang = new slangDictionary();
         slang.getData();
         slang.getHistory();
-        HashMap<String, List<String>> listHashMap = slang.findDefinition("smile");
-        for (HashMap.Entry<String, List<String>> entry : listHashMap.entrySet()){
-            slang.getString(entry.getKey(), entry.getValue());
-        }
+        slang.getString(slang.randomASlang());
     }
 }
