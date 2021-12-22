@@ -39,6 +39,32 @@ public class slangDictionary {
             System.out.println("ERROR"+ex);
         }
     }
+    public void resetData(){
+        try
+        {
+            dictionary.clear();
+            File f=new File("Data/root.txt");
+            FileReader fr=new FileReader(f);
+            BufferedReader br=new BufferedReader(fr);
+            String line;
+            while((line=br.readLine())!=null)
+            {
+                if (line.contains("`"))
+                {
+                    String[] s=line.split("`");
+                    String[] tmp=s[1].split("\\|");
+                    List<String> temp= Arrays.asList(tmp);
+                    dictionary.put(s[0],temp);
+                }
+            }
+            fr.close();
+            br.close();
+        }
+        catch (Exception ex)
+        {
+            System.out.println("ERROR"+ex);
+        }
+    }
     public void getHistory(){
         try
         {
@@ -100,7 +126,7 @@ public class slangDictionary {
         String dateInfo =  formatter.format(date);
         searchHistory history = new searchHistory(dateInfo,type, content);
         searchHistoryList.add(0, history);
-        saveHistory();
+        
     }
     public boolean addSlang(String word, String definition){
         if(!dictionary.containsKey(word)){
@@ -222,6 +248,7 @@ public class slangDictionary {
         for(String item: n){
             System.out.println(item);
         }
+        slang.resetData();
         List<String> m = slang.randomKey(slang.randomASlang().getKey());
         for(String item: m){
             System.out.println(item);
