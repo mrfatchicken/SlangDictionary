@@ -185,10 +185,46 @@ public class slangDictionary {
         int randomKey = r.nextInt(keysAsArray.size());
         return new AbstractMap.SimpleEntry<>(keysAsArray.get(randomKey), dictionary.get(keysAsArray.get(randomKey)));
     }
+    public List<String> randomDefinition(String key){
+        List<String> keysAsArray = new ArrayList<String>(dictionary.keySet());
+        List<String> randomDef = new ArrayList<>();
+        Random r = new Random();
+        int count = 0;
+        while (count < 3) {
+            int randomKey = r.nextInt(keysAsArray.size());
+            if (!Objects.equals(keysAsArray.get(randomKey), key)){
+                int randomValue = r.nextInt(dictionary.get(keysAsArray.get(randomKey)).size());
+                randomDef.add(dictionary.get(keysAsArray.get(randomKey)).get(randomValue));
+                count++;
+            }
+        }
+        return randomDef;
+    }
+    public List<String> randomKey(String key){
+        List<String> keysAsArray = new ArrayList<String>(dictionary.keySet());
+        List<String> randomKey = new ArrayList<>();
+        Random r = new Random();
+        int count = 0;
+        while (count < 3) {
+            int randomK = r.nextInt(keysAsArray.size());
+            if (!Objects.equals(keysAsArray.get(randomK), key)){
+                randomKey.add(keysAsArray.get(randomK));
+                count++;
+            }
+        }
+        return randomKey;
+    }
     public static void main(String[] arg){
         slangDictionary slang = new slangDictionary();
         slang.getData();
         slang.getHistory();
-        slang.getString(slang.randomASlang());
+        List<String> n = slang.randomDefinition(slang.randomASlang().getKey());
+        for(String item: n){
+            System.out.println(item);
+        }
+        List<String> m = slang.randomKey(slang.randomASlang().getKey());
+        for(String item: m){
+            System.out.println(item);
+        }
     }
 }
