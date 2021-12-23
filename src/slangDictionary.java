@@ -95,8 +95,8 @@ public class slangDictionary {
         for(String def: value){
             definition.append(def).append(";");
         }
+        definition.deleteCharAt(definition.length()-1);
         String print = key + " : " +definition;
-        System.out.println(print);
         return print;
     }
     public String getString(HashMap.Entry<String, List<String>> entry){
@@ -105,6 +105,7 @@ public class slangDictionary {
         for(String def: entry.getValue()){
             definition.append(def).append(",");
         }
+        definition.deleteCharAt(definition.length()-1);
         String print = key + " : " +definition;
         System.out.println(print);
         return print;
