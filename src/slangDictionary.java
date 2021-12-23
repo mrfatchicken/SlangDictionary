@@ -5,7 +5,10 @@ import java.util.*;
 public class slangDictionary {
     private final HashMap<String, List<String>> dictionary=new HashMap<String,List<String>>();
     private final List<searchHistory> searchHistoryList =new ArrayList();
-
+    public slangDictionary(){
+        this.getData();
+        this.getHistory();
+    }
     public HashMap<String, List<String>> getDictionary() {
         return dictionary;
     }
@@ -17,8 +20,8 @@ public class slangDictionary {
     public void getData(){
         try
             {
-                File f=new File("Data/slang.txt");
-                FileReader fr=new FileReader(f);
+                File file = new File("Data/slang.txt");
+                FileReader fr=new FileReader(file);
                 BufferedReader br=new BufferedReader(fr);
                 String line;
                 while((line=br.readLine())!=null)
@@ -34,17 +37,17 @@ public class slangDictionary {
             fr.close();
             br.close();
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            System.out.println("ERROR"+ex);
+            e.printStackTrace();
         }
     }
     public void resetData(){
         try
         {
             dictionary.clear();
-            File f=new File("Data/root.txt");
-            FileReader fr=new FileReader(f);
+            File file =new File("Data/root.txt");
+            FileReader fr=new FileReader(file);
             BufferedReader br=new BufferedReader(fr);
             String line;
             while((line=br.readLine())!=null)
@@ -60,16 +63,16 @@ public class slangDictionary {
             fr.close();
             br.close();
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            System.out.println("ERROR"+ex);
+            e.printStackTrace();
         }
     }
     public void getHistory(){
         try
         {
-            File f=new File("Data/history.txt");
-            FileReader fr=new FileReader(f);
+            File file = new File("Data/history.txt");
+            FileReader fr=new FileReader(file);
             BufferedReader br=new BufferedReader(fr);
             String line;
             while((line=br.readLine())!=null)
@@ -82,15 +85,15 @@ public class slangDictionary {
             fr.close();
             br.close();
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            System.out.println("ERROR"+ex);
+            e.printStackTrace();
         }
     }
     public String getString(String key, List<String> value){
         StringBuilder definition = new StringBuilder();
         for(String def: value){
-            definition.append(def).append(",");
+            definition.append(def).append(";");
         }
         String print = key + " : " +definition;
         System.out.println(print);
@@ -126,7 +129,7 @@ public class slangDictionary {
         String dateInfo =  formatter.format(date);
         searchHistory history = new searchHistory(dateInfo,type, content);
         searchHistoryList.add(0, history);
-        
+
     }
     public boolean addSlang(String word, String definition){
         if(!dictionary.containsKey(word)){
@@ -169,7 +172,7 @@ public class slangDictionary {
             bw.close();
         }
         catch (Exception ex) {
-            System.out.println("Error: "+ex);
+            ex.printStackTrace();
         }
     }
     public void printAllWord(){
