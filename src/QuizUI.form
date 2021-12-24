@@ -22,6 +22,7 @@
         <properties>
           <background color="-5386"/>
           <editable value="false"/>
+          <preferredSize width="300" height="60"/>
           <text value=""/>
         </properties>
       </component>

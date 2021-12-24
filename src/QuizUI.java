@@ -95,6 +95,8 @@ public class QuizUI extends JFrame {
     }
 
     private void getDefQuiz() {
+        bg.clearSelection();
+        radioChoose = false;
         result = dictionary.randomASlang();
         Question.setText("What slang for this definition '"+result.getValue().get(0)+"' ?");
         List<String> answerSet = dictionary.randomKey(result.getKey());
@@ -154,6 +156,8 @@ public class QuizUI extends JFrame {
     }
 
     private void getSlangQuiz() {
+        bg.clearSelection();
+        radioChoose = false;
         result = dictionary.randomASlang();
         Question.setText("What meaning for the slang '"+result.getKey()+"' ?");
         List<String> answerSet = dictionary.randomDefinition(result.getKey());

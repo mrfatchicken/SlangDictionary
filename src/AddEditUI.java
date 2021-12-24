@@ -58,7 +58,7 @@ public class AddEditUI extends JFrame{
                 if(!Objects.equals(WordField.getText(), "") && !Objects.equals(DefinitionField.getText(), "")){
                     if(!dictionary.editSlang(WordField.getText(),DefinitionField.getText())){
                         if (JOptionPane.showConfirmDialog(jf,
-                                "This slang is exist, do you want to add it?", "Edit Window?",
+                                "This slang is not exist, do you want to add it?", "Edit Window?",
                                 JOptionPane.YES_NO_OPTION,
                                 JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
                             if(dictionary.addSlang(WordField.getText(),DefinitionField.getText())) Notification.setText("Add successfully");

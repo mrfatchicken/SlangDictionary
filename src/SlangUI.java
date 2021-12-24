@@ -104,7 +104,7 @@ public class SlangUI extends JFrame {
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
                                 dictionary.removeSlang((String) model.getValueAt(SlangList.getSelectedRow(), 0));
-//                                updateScreenList(dictionary.getDictionary());
+                                updateScreenList(dictionary.getDictionary());
                                 Notification.setText("Delete successfully");
                     }
                 }
