@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="QuizUI">
+  <grid id="27dc6" binding="content" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-5386"/>
+      <enabled value="false"/>
+      <minimumSize width="400" height="400"/>
+      <preferredSize width="400" height="400"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="187a0" class="javax.swing.JTextField" binding="Question">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-5386"/>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="a345d" class="javax.swing.JRadioButton" binding="radioButton1" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-5386"/>
+          <maximumSize width="400" height="50"/>
+          <minimumSize width="100" height="50"/>
+          <preferredSize width="300" height="50"/>
+          <text value="RadioButton"/>
+        </properties>
+      </component>
+      <component id="39ced" class="javax.swing.JRadioButton" binding="radioButton2" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-5386"/>
+          <maximumSize width="88" height="50"/>
+          <minimumSize width="88" height="50"/>
+          <preferredSize width="300" height="50"/>
+          <text value="RadioButton"/>
+        </properties>
+      </component>
+      <component id="bb8a0" class="javax.swing.JRadioButton" binding="radioButton3" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-5386"/>
+          <maximumSize width="88" height="50"/>
+          <minimumSize width="88" height="50"/>
+          <preferredSize width="300" height="50"/>
+          <text value="RadioButton"/>
+        </properties>
+      </component>
+      <component id="c5471" class="javax.swing.JRadioButton" binding="radioButton4" default-binding="true">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-5386"/>
+          <maximumSize width="88" height="50"/>
+          <minimumSize width="88" height="50"/>
+          <preferredSize width="300" height="50"/>
+          <text value="RadioButton"/>
+        </properties>
+      </component>
+      <component id="11f57" class="javax.swing.JButton" binding="submitButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Submit"/>
+        </properties>
+      </component>
+      <component id="40ebf" class="javax.swing.JTextPane" binding="Notification">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-5386"/>
+          <font name="Consolas" style="1"/>
+          <preferredSize width="300" height="60"/>
+          <requestFocusEnabled value="false"/>
+        </properties>
+      </component>
+      <component id="27466" class="javax.swing.JButton" binding="nextButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Next"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

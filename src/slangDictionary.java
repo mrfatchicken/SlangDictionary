@@ -78,7 +78,6 @@ public class slangDictionary {
             while((line=br.readLine())!=null)
             {
                 String[] strings = line.split("\\|");
-                System.out.println(strings[0] + " " + strings[1]+ " " + strings[2]);
                 searchHistory temp = new searchHistory(strings[0],strings[1],strings[2]);
                 searchHistoryList.add(temp);
             }
@@ -107,7 +106,6 @@ public class slangDictionary {
         }
         definition.deleteCharAt(definition.length()-1);
         String print = key + " : " +definition;
-        System.out.println(print);
         return print;
     }
     public void saveHistory(){
@@ -245,17 +243,7 @@ public class slangDictionary {
         return randomKey;
     }
     public static void main(String[] arg){
-        slangDictionary slang = new slangDictionary();
-        slang.getData();
-        slang.getHistory();
-        List<String> n = slang.randomDefinition(slang.randomASlang().getKey());
-        for(String item: n){
-            System.out.println(item);
-        }
-        slang.resetData();
-        List<String> m = slang.randomKey(slang.randomASlang().getKey());
-        for(String item: m){
-            System.out.println(item);
-        }
+        slangDictionary slang=  new slangDictionary();
+        SlangUI ui = new SlangUI(slang);
     }
 }

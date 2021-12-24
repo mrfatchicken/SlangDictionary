@@ -45,6 +45,7 @@ public class SlangUI extends JFrame {
         this.setTitle("Slang dictionary");
         this.LuckySlang.setText("Lucky slang for today is \n"+dictionary.getString(dictionary.randomASlang()));
         this.pack();
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setVisible(true);
         JFrame jf = this;
         this.addWindowListener(new WindowAdapter() {
@@ -103,6 +104,7 @@ public class SlangUI extends JFrame {
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
                                 dictionary.removeSlang((String) model.getValueAt(SlangList.getSelectedRow(), 0));
+//                                updateScreenList(dictionary.getDictionary());
                                 Notification.setText("Delete successfully");
                     }
                 }
@@ -141,6 +143,18 @@ public class SlangUI extends JFrame {
                 }
             }
         });
+        slangQuizButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                QuizUI quiz = new QuizUI(dictionary,"slang");
+            }
+        });
+        definitionQuizButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                QuizUI quiz = new QuizUI(dictionary,"definition");
+            }
+        });
     }
 
     private void find() {
@@ -163,10 +177,6 @@ public class SlangUI extends JFrame {
         }
     }
 
-    public static void main(String[] arg){
-        slangDictionary slang=  new slangDictionary();
-        SlangUI ui = new SlangUI(slang);
-    }
     public String listToString(List<String> list){
         StringBuilder definition = new StringBuilder();
         for(String def: list){
